@@ -4,15 +4,33 @@ public class Main
     public static void main(String[] args) 
     {
     Scanner input=new Scanner(System.in);
-    int ciclo;
+    int ciclo=-1;
     do
-    {  
-          System.out.println("Digita valore su qui applicare fibonacci");
+    { 
+    	
+        try
+    	{
+          System.out.println("Digita valore positivo su cui applicare fibonacci, o premi 0 per uscire");
           ciclo=input.nextInt();
-	      Fibonacci.metodoFibonacci(ciclo);
-	    
+          if (ciclo>0) 
+          {
+          	Fibonacci.metodoFibonacci(ciclo);
+          }
+          else if(ciclo<0)
+          {
+          	System.out.println("Input negativo, riprova");
+          }
+        }
+        catch (Exception ext)
+        {
+        	
+        	System.out.println("Input non valido, riprova");
+        	input.next();
+        }
+
 	}
-	while(ciclo<200);	
+	while(ciclo !=0);
+	System.out.println("bye bye");	
 	
 } 
 
